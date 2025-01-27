@@ -34,11 +34,11 @@ void heapify(struct Heapnode **heaplist, int *size) {
 
 struct Heapnode** create_maxheap(int *list, int *size){
 
-    // allocate mem to store array with pointers to structs
+    
     struct Heapnode **arr = (struct Heapnode **)malloc(sizeof(struct Heapnode *) * *size);
 
     for (int i = 0; i < *size; i++) {
-        // allocate mem to store structs and store the pointer in the previous mem
+        
         struct Heapnode *n = (struct Heapnode *)malloc(sizeof(struct Heapnode));
         n -> val = list[i];
         arr[i] = n;
@@ -73,7 +73,7 @@ struct Heapnode **heap_insert(struct Heapnode **arr, int *size, struct Heapnode 
     if (temp == NULL) {
         printf("Reallocation failed.\n");
         free(arr);
-        return arr; //
+        return arr; 
     } else {
         arr = temp;
         arr[*size] = node;
@@ -103,7 +103,7 @@ int main(void) {
 
     printf("Initial array size: %d\n", arr_size);
 
-    // Create the max-heap
+
     struct Heapnode **node_arr = create_maxheap(arr, size);
 
     printf("\nInitial heap:\n");
@@ -115,7 +115,7 @@ int main(void) {
         }
     }
 
-    // Insertions
+    
     struct Heapnode node1 = {20, NULL, NULL, NULL};
     struct Heapnode node2 = {9, NULL, NULL, NULL};
     struct Heapnode node3 = {1, NULL, NULL, NULL};
@@ -133,7 +133,7 @@ int main(void) {
         }
     }
 
-    // Cleanup
+    
     for (int i = 0; i < *size; i++) {
         free(node_arr[i]);
     }
